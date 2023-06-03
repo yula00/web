@@ -8,6 +8,10 @@
 
   <!-- <script src="./index.js"></script> -->
   <link rel="stylesheet" href="./css/index.css" type="text/css"/>
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <!-- 제이쿼리 ui라이브러리 -->
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 </head>
 <body>
     <header>
@@ -22,7 +26,7 @@
         <span>&nbsp;</span>
       </div>
       <nav>
-        <ul class=".gnb">
+        <ul class="gnb">
           <li class="act01"><a href="#" title="home">HOME</a></li>
           <li><a href="#" title="소개페이지">ABOUT</a></li>
           <li><a href="#" title="내소개">PROFILE</a></li>
@@ -90,16 +94,16 @@
         </dl>
       </section>
     </main>
-        <!-- 제이쿼리 라이브러리 -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <!-- 제이쿼리 ui라이브러리 -->
-        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
     <script>
       $(document).ready(function(){
         //클릭이벤트
         $(".gnb li").click(function(){
+          if($(this).hasClass('act01')==true){
+          return false;
+          }
+          $(this).addClass('act01').siblings().removeClass('act01');
           let idx = $(this).index();
-          console.log(idx);
           $('.info').fadeOut();
           $('.info').eq(idx).fadeIn();
         });
