@@ -5,130 +5,106 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
   <title>Ha Yun's Homepage</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="./index.js"></script>
-  <link rel="stylesheet" href="C:\Users\이하윤\Desktop\web_homepage\css_.html">
-  <link rel="stylesheet" href="./css/index.css" />  <style>
-        * { margin:0; padding: 0;}
-    body {width: 960px; margin: 0 auto; overflow: hidden; }
-    #menu { width: 260px; float: left;}
-    #section { width: 700px; float: right; }
-    @media screen and (max-width: 767px) {
-      body { width: auto }
-      #menu { width: auto; float: none; }
-      #section { width: auto; float: none; }
-    }
-  </style>
-  <script>
-    $(document).ready(function () {
-      var width = $('[data-role="slider"]').attr('data-width');
-      var height = $('[data-role="slider"]').attr('data-height');
-      var count = $('[data-role="slider"] div.item').length;
-      $('[data-role="slider"]').css({
-        position: 'relative', overflow: 'hidden', width: width, height: height
-      })
-        .find('.container').css({
-          position: 'absolute', width: count * width, overflow: 'hidden'
-        })
-        .find('.item').css({
-          width: width, height: height, float: 'left'
-        });
-      var currentPage = 0;
-      var changePage = function () {
-        $('[data-role="slider"] > .container').animate({ left: -currentPage * width }
-          , 500);
-      };
-      $('#left-button').click(function () {
-        if (currentPage > 0) { currentPage--; changePage(); }
-      });
-      $('#right-button').click(function () {
-        if (currentPage < count - 1) { currentPage++; changePage(); }
-      });
-    });
-  </script>
+
+  <!-- <script src="./index.js"></script> -->
+  <link rel="stylesheet" href="./css/index.css" type="text/css"/>
 </head>
 <body>
-    <!-- <div class="mainlogo">
-        <a href="main_1.html">
-          <image src="./images\logo.PNG" style="width: 100px;">
-        </a>
-    </div>
-    <div class="menu">
-    <header>
-      <h1>Lee Ha Yun</h1>
-      <button class="menu-toggle">Menu</button>
-      <nav>
-        <ul class="gnb">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#profile">Profile</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header> -->
     <header>
       <h1>
         <a href="index.html" title="메인페이지 바로가기">
           <img src="./images/logo.PNG" alt="메인로고">
         </a>
       </h1>
+      <div id="toggle_btn">
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+      </div>
       <nav>
-        <ul>
-          <li><a href="#">ABOUT</a></li>
-          <li><a href="#">PROFILE</a></li>
-          <li><a href="#">CONTACT</a></li>
+        <ul class=".gnb">
+          <li class="act01"><a href="#" title="home">HOME</a></li>
+          <li><a href="#" title="소개페이지">ABOUT</a></li>
+          <li><a href="#" title="내소개">PROFILE</a></li>
+          <li><a href="#" title="연락처">CONTACT</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <section id="home" class="info">
-        <h2>"Welcome to my homepage!"</h2>
+        <h2>Computer Engineering 202113516 Lee hayun</h2>
       </section>
-      <section id="profile" class="info">
-        <h2>
-            안녕하세요, 저는 강원대학교 컴퓨터공학과에 재학중인 이하윤입니다. 
-            2021학년도 자유전공학부로 입학하여 2022학년도에 컴퓨터공학과로 새로운 과를 배정받게 되었습니다.
-            2022년에 컴퓨터공학과 학생회 사무국 임원으로 일하기도 하였습니다. 현재는 SW 중심대학사업단 TA로 일하고 있습니다.
-        </h2>
+      <section class="info" id="about">
+        <h2>About</h2>
+        <article>
+          <h3 class="hidden">이하윤</h3>
+          <div>
+            <img src="./images/hayun.jpg" alt="이하윤 사진">
+          </div>
+          <p>Hello, I'm Lee Hayun, majoring in <a href="https://cse.kangwon.ac.kr/cse/index.do" title="강원대학교 컴퓨터 공학과" target="_blank">Computer Engineering</a> at Kangwon National University. I was born in Busan, South Korea, and now I have my home in Uijeongbu, Gyeonggi-do. I entered the <a href="https://liberal.kangwon.ac.kr/liberal/index.do" title="강원대학교 자유전공학부 사이트" target="_blank">Liberal major department</a> in 2021 and was assigned a new department as a computer engineering department in 2022. In 2022, I also worked as an executive at the secretariat of the Student Council of Computer Science. Currently, I am working as TA of <a href="https://sw.kangwon.ac.kr/" title="강원대 sw 사업단" target="_blank">SW-centered university</a> business organization.</p>
+        </article>
       </section>
-      <section id="contact" class="info">
-        <h2>instagram</h2>
+      <section class="info" id="profile">
+        <h2>Profile</h2>
+        <ul>
+          <li>
+            <span>Profile</span>
+            <div>
+              <img src="./images/mbti.png" alt="mbti">
+            </div>
+            <span>MBTI : ESFJ<br>
+            character: I have a bright and cheerful personality, and I am a kind person. Because of that personality, I have many friends and enjoy spending time with them.
+            </span>
+          </li>
+          <li>
+            <span>Pet</span>
+            <div>
+              <img src="./images/all100.jpg" alt="강아지">
+            </div>
+            <span>name: All-100 Lee<br>
+              birth: May 2011<br>
+              more: The gender is female, and the breed is Shiba. He is very smart and cute and has a young face. She is a little scared, but she is even cuter.</span>
+          </li>
+          <li>
+            <span>Favorite</span>
+            <div>
+              <img src="./images/hobby.jpg" alt="취미사진">
+            </div>
+            <span>
+              1. listening music<br>
+              2. badminton<br>
+              3. a walk by the sea
+            </span>
+          </li>
+        </ul>
+      </section>
+      <section class="info" id="contact">
+        <h2>Contact</h2>
+        <dl>
+          <dt>Phone : </dt>
+          <dd>010-4473-4260</dd><br>
+          <dt>Email : </dt>
+          <dd>dfg456@kangwon.ac.kr</dd><br>
+          <dt>instagram : </dt>
+          <dd><a href="https://instagram.com/2_yul_a?igshid=OGQ5ZDc2ODk2ZA" title="이하윤 인스타" target="_blank"></a>@2_yul_a</dd>
+        </dl>
       </section>
     </main>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
-        crossorigin="anonymous"></script>
-  <script>
-    $(document).ready(function(){
-        $(".menu-toggle").click(function(){
-        $(".gnb").toggle(); // 네비게이션 메뉴 토글
-    });
-      // 네비게이션 메뉴 클릭 이벤트
-        $(".gnb li a").click(function(e){
-        e.preventDefault(); // 기본 링크 동작 막기
-        var target = $(this).attr("href"); // 클릭된 링크의 href 속성값 가져오기
-        $(".info").hide(); // 모든 섹션 숨기기
-        $(target).show(); // 클릭된 섹션 보여주기
-        $(".gnb").hide();
+        <!-- 제이쿼리 라이브러리 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <!-- 제이쿼리 ui라이브러리 -->
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+      $(document).ready(function(){
+        //클릭이벤트
+        $(".gnb li").click(function(){
+          let idx = $(this).index();
+          console.log(idx);
+          $('.info').fadeOut();
+          $('.info').eq(idx).fadeIn();
+        });
+        //텝 이벤트
       });
-
-      // 초기 로딩 시 해시값에 따라 섹션 표시
-      if (window.location.hash) {
-        var hash = window.location.hash; // 현재 URL의 해시값 가져오기
-        $(hash).show(); // 해당 해시값에 해당하는 섹션 보여주기
-      } else {
-        $("#home").show(); // 해시값이 없을 경우 Home 섹션 보여주기
-      }
-    });
-  </script>
-  <footer class="footer">
-    <p class="text-center .col-md-* text-muted">Copyright @ 2023.
-      Hayun Lee (dfg456 (at) kangwon.ac.kr) All rights reserved.</p>
-  </footer>
+    </script>
 </body>
 </html>
