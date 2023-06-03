@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
+  <title>Ha Yun's Homepage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./index.js"></script>
+  <link rel="stylesheet" href="C:\Users\이하윤\Desktop\web_homepage\css_.html">
+  <link rel="stylesheet" href="./css/index.css" />  <style>
+        * { margin:0; padding: 0;}
+    body {width: 960px; margin: 0 auto; overflow: hidden; }
+    #menu { width: 260px; float: left;}
+    #section { width: 700px; float: right; }
+    @media screen and (max-width: 767px) {
+      body { width: auto }
+      #menu { width: auto; float: none; }
+      #section { width: auto; float: none; }
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      var width = $('[data-role="slider"]').attr('data-width');
+      var height = $('[data-role="slider"]').attr('data-height');
+      var count = $('[data-role="slider"] div.item').length;
+      $('[data-role="slider"]').css({
+        position: 'relative', overflow: 'hidden', width: width, height: height
+      })
+        .find('.container').css({
+          position: 'absolute', width: count * width, overflow: 'hidden'
+        })
+        .find('.item').css({
+          width: width, height: height, float: 'left'
+        });
+      var currentPage = 0;
+      var changePage = function () {
+        $('[data-role="slider"] > .container').animate({ left: -currentPage * width }
+          , 500);
+      };
+      $('#left-button').click(function () {
+        if (currentPage > 0) { currentPage--; changePage(); }
+      });
+      $('#right-button').click(function () {
+        if (currentPage < count - 1) { currentPage++; changePage(); }
+      });
+    });
+  </script>
+</head>
+<body>
+    <!-- <div class="mainlogo">
+        <a href="main_1.html">
+          <image src="./images\logo.PNG" style="width: 100px;">
+        </a>
+    </div>
+    <div class="menu">
+    <header>
+      <h1>Lee Ha Yun</h1>
+      <button class="menu-toggle">Menu</button>
+      <nav>
+        <ul class="gnb">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header> -->
+    <header>
+      <h1>
+        <a href="index.html" title="메인페이지 바로가기">
+          <img src="./images/logo.PNG" alt="메인로고">
+        </a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">PROFILE</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="info">
+        <h2>"Welcome to my homepage!"</h2>
+      </section>
+      <section id="profile" class="info">
+        <h2>
+            안녕하세요, 저는 강원대학교 컴퓨터공학과에 재학중인 이하윤입니다. 
+            2021학년도 자유전공학부로 입학하여 2022학년도에 컴퓨터공학과로 새로운 과를 배정받게 되었습니다.
+            2022년에 컴퓨터공학과 학생회 사무국 임원으로 일하기도 하였습니다. 현재는 SW 중심대학사업단 TA로 일하고 있습니다.
+        </h2>
+      </section>
+      <section id="contact" class="info">
+        <h2>instagram</h2>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+        $(".menu-toggle").click(function(){
+        $(".gnb").toggle(); // 네비게이션 메뉴 토글
+    });
+      // 네비게이션 메뉴 클릭 이벤트
+        $(".gnb li a").click(function(e){
+        e.preventDefault(); // 기본 링크 동작 막기
+        var target = $(this).attr("href"); // 클릭된 링크의 href 속성값 가져오기
+        $(".info").hide(); // 모든 섹션 숨기기
+        $(target).show(); // 클릭된 섹션 보여주기
+        $(".gnb").hide();
+      });
+
+      // 초기 로딩 시 해시값에 따라 섹션 표시
+      if (window.location.hash) {
+        var hash = window.location.hash; // 현재 URL의 해시값 가져오기
+        $(hash).show(); // 해당 해시값에 해당하는 섹션 보여주기
+      } else {
+        $("#home").show(); // 해시값이 없을 경우 Home 섹션 보여주기
+      }
+    });
+  </script>
+  <footer class="footer">
+    <p class="text-center .col-md-* text-muted">Copyright @ 2023.
+      Hayun Lee (dfg456 (at) kangwon.ac.kr) All rights reserved.</p>
+  </footer>
+</body>
+</html>
